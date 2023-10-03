@@ -23,7 +23,7 @@ const subcategory = mongoose.model("subcategory", {
   sparentid:String,
   sname:String,
   sgparentid:[],
-  img:String
+  simage:String
 });
 module.exports ={
     category,product,subcategory

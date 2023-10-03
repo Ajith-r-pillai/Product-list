@@ -19,7 +19,7 @@ function Header() {
   <div className='nav-middle'>
    <div className='nav-middle-2'>
       <div className='nav-md1'>
-      <Link style={{textDecoration:'none'}} to={'/'}>  <h3>Products</h3></Link>
+      <Link style={{textDecoration:'none',color:'black'}} to={'/'}> <h3><i style={{color:'rgba(49,135,238,255)',fontSize:'3rem'}} class="fa-brands fa-product-hunt"></i> Products</h3></Link>
       </div>
       <div className='nav-midd-select'>
         <select className='nav-midd-select1' name="" id="">
@@ -27,8 +27,8 @@ function Header() {
         </select>
       </div>
       <div className='nav-midd-search'>
-        <input className='nav-midd-searchin' type="text" placeholder='Search Here....' />
-        <button style={{border:"none",backgroundColor:'white'}}><i style={{color:'rgba(49,135,238,255)',fontSize:'1.3rem'}} className="fa-solid fa-magnifying-glass"></i></button>
+        {/* <input className='nav-midd-searchin' type="text" placeholder='Search Here....' />
+        <button style={{border:"none",backgroundColor:'white'}}><i style={{color:'rgba(49,135,238,255)',fontSize:'1.3rem'}} className="fa-solid fa-magnifying-glass"></i></button> */}
 
       </div >
       <div className='nav2-Icons'>
@@ -37,7 +37,7 @@ function Header() {
      <i className="fa-solid fa-circle-user"></i>
       </div>
 
-      <button className='btn-classifi'>Classified</button>
+      {/* <button className='btn-classifi'>Classified</button> */}
    </div>
   </div></div>
   )

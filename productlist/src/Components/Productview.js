@@ -9,8 +9,10 @@ import { useParams } from "react-router-dom";
 
 function Productview() {
   const [allSubcategory,setAllSubcategory]=useState([]);
+  const [allSubcategoryid,setAllSubcategoryid]=useState([]);
   const [allProducts,setAllProducts]=useState([]);
   const [allcategory, setAllcategory] = useState([]);
+
 const Params=useParams()
 
  
@@ -22,24 +24,32 @@ const Params=useParams()
 };
 console.log(allcategory);
 
+
 const fetchsubcategory=async()=> {
     const result = await axios.get("http://localhost:8000/getallSubCategory/"+Params.id);
     setAllSubcategory(result.data.subcategory);
+    setAllSubcategoryid(result.data.subcategory.sid);
  
 }
+
 const fetchAllproducts=async()=> {
   const result = await axios.get("http://localhost:8000/getallProducts/"+Params.id);
   setAllProducts(result.data.products);
 
 }
-  console.log(allProducts);
+  // console.log(allProducts);
+  // console.log(allSubcategoryid);
+  // allProducts
+  // let newarr=[]
+  //  newarr=allSubcategory.filter()
+
+
 
   
   useEffect(()=>{
     fetchData()
     fetchsubcategory()
     fetchAllproducts()
-   
   },[])
  
   
@@ -47,28 +57,28 @@ const fetchAllproducts=async()=> {
   return (
     <div className="productview-main">
       <Header />
-      <div>
+      <div className="home-heading">
    
-        <h2>Category({allProducts.length})</h2>
+       <div  className="home-heading-conent"> <h2>Category({allProducts.length})</h2></div>
     
       </div>
       <div>
       {
 allcategory.map((item, index)=>( 
-        <Categories data={item}/>
+        <Categories count={allProducts.length}  data={item}/>
         ))}
       </div>
-      <div>
-        <h2>Subcategories</h2>
+      <div  className="home-heading">
+     <div  className="home-heading-conent">   <h2>Subcategories</h2></div>
       </div>
       <div className='pcard'>
 {
 allSubcategory.map((item, index)=>( 
-<Subcategories fction1={fetchsubcategory} data={item}/>
+<Subcategories subcategory={allSubcategory} poducts={allProducts} data={item}/>
 ))}
 </div>
-      <div>
-        <h2>Products</h2>
+      <div  className="home-heading">
+      <div  className="home-heading-conent">  <h2>Products</h2></div>
       </div>
       <div className='pcard'>
 {

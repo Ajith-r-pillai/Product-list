@@ -36,6 +36,7 @@ function Addcategory() {
 }catch(error){
     
 alert(error.response.data.message)
+navigate('/')
 
    }}
    

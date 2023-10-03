@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Addcategory.css'
 import uuid from "react-uuid";
 import axios from "axios";
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function Addsubcategory() {
     const [sid, setsid] = useState("");
@@ -12,7 +12,7 @@ function Addsubcategory() {
     const [simage, setsimage] = useState("");
     const [pcount, setpcount] = useState("");
     const params=useParams()
-
+const navigate=useNavigate()
 useEffect(()=>{
     setsparentid(params.id)
     setsid(uuid().slice(0,3))},[]
@@ -34,10 +34,12 @@ useEffect(()=>{
      const result=await axios.post('http://localhost:8000/AddSubcategory',body)
     
     alert(result.data.message)
+    navigate('/')
    
 }catch(error){
     
 alert(error.response.data.message)
+navigate('/')
 
    }}
    
